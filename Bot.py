@@ -2,7 +2,6 @@ import praw
 import matplotlib.pyplot as plt
 import datetime
 import time
-from urllib.error import HTTPError
 def sort_dict_by_value(d, reverse = False):
   return dict(sorted(d.items(), key = lambda x: x[1], reverse = reverse))
 
@@ -96,5 +95,5 @@ while True:
             "freq_words":{},
             "commenters":{}
         }
-    except HTTPError as e:
+    except:
         time.sleep(30)
