@@ -51,6 +51,7 @@ while True:
                     break
         except Exception:
             traceback.print_exc()
+            print(datetime.datetime.now())
             time.sleep(30)
             continue
         break
@@ -89,23 +90,22 @@ while True:
             subreddit.submit_gallery(title="KGB Günlük Veriler",images=names,flair_id="5fa2b1e2-cd1f-11e9-8ead-0e319e47d7bc")
         except Exception:
             traceback.print_exc()
+            print(datetime.datetime.now())
             time.sleep(30)
             continue
         break
     time.sleep(5)
-    while True:
-        try:
-            last_post = next(iter(reddit.redditor("NotBpc").submissions.new(limit=1)))
-            rpl = f'''
-            En çok paylaşılan {max(len(top_floods),3)} flood:
-            '''
-            for i in range(max(len(top_floods),3)):
-                rpl += "\n"
-                rpl += str(i+1) + '-'
-                rpl += top_floods[i]
-            last_post.reply(rpl)
-        except Exception:
-            traceback.print_exc()
-            time.sleep(30)
-            continue
-        break
+    try:
+        last_post = next(iter(reddit.redditor("NotBpc").submissions.new(limit=1)))
+        rpl = f'''
+        En çok paylaşılan {max(len(top_floods),3)} flood:
+        '''
+        for i in range(max(len(top_floods),3)):
+            rpl += "\n"
+            rpl += str(i+1) + '-'
+            rpl += top_floods[i]
+        last_post.reply(rpl)
+    except Exception:
+        traceback.print_exc()
+        print(datetime.datetime.now())
+        
