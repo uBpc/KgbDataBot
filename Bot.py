@@ -98,9 +98,9 @@ while True:
     try:
         last_post = next(iter(reddit.redditor("NotBpc").submissions.new(limit=1)))
         rpl = f'''
-        En çok paylaşılan {max(len(top_floods),3)} flood:
+        En çok paylaşılan {min(len(top_floods),3)} flood:
         '''
-        for i in range(max(len(top_floods),3)):
+        for i in range(min(len(top_floods),3)):
             rpl += "\n"
             rpl += str(i+1) + '-'
             rpl += top_floods[i]
