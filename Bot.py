@@ -75,13 +75,13 @@ while True:
                 break
         axes.bar(x,y)
         if base_key == "floods":
-            axes.set_title(f"En çok paylaşılan {max(7,len(x))} flood")
+            axes.set_title(f"En çok paylaşılan {len(x)} flood")
         elif base_key == "flooders":
-            axes.set_title(f"En çok flood atan {max(7,len(x))} kişi")
+            axes.set_title(f"En çok flood atan {len(x)} kişi")
         elif base_key == "commenters":
-            axes.set_title(f"En çok yorum atan {max(7,len(x))} kişi")
+            axes.set_title(f"En çok yorum atan {len(x)} kişi")
         else:
-            axes.set_title(f"En çok kullanılan {max(7,len(x))} kelime")
+            axes.set_title(f"En çok kullanılan {len(x)} kelime")
         plt.xticks(fontsize=7)
         fig.savefig(f"{base_key}.png")
         names.append({"image_path":f"{base_key}.png"})
